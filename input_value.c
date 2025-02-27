@@ -108,20 +108,20 @@ void check_int(t_stack **stack, char *s)
 	}
 	while (r[i])
 	{
-	if (r[i][j] == '-' || r[i][j] == '+')
-		j++;
-	while (r[i][j])
-	{
-		if ((r[i][j] <= 57 && r[i][j] >= 48))
+		if (r[i][j] == '-' || r[i][j] == '+')
 			j++;
-		else
+		while (r[i][j])
 		{
-			put_str("Error\n");
-			exit(1);
+			if ((r[i][j] <= 57 && r[i][j] >= 48))
+				j++;
+			else
+			{
+				put_str("Error\n");
+				exit(1);
+			}
 		}
-	}
 	//	printf("%d\t", atoi(r[i]));
-	ft_lstadd_back(stack, ft_atoi(r[i]));
-	i++;
+		ft_lstadd_back(stack, ft_atoi(r[i]));
+		i++;
 	}	
 }

@@ -42,28 +42,25 @@ void ft_lstadd_back(t_stack **lst, int value)
 
 int main(int ac, char **av)
 {
-    int i = 1;
+     int i = 1;
     t_stack *a = NULL;
-     t_stack *b = NULL;
-     i++;
-    // while (i < ac)
-    // {
-    check_int(&a, av[1]);
-     check_int(&b, av[2]);
-    //     i++;
-    //}
-        ss(a, b);
+
+
+
+    while (i < ac)
+    {
+        check_int(&a, av[i]);
+        i++;
+    }
+
+    //ra(&a, 1);
+         push_to_b(a);
         while (a)
         {
             printf("%d ", a->value);
             a = a->next;
         }
         printf("\n");
-        while (b)
-        {
-            printf("%d ", b->value);
-            b = b->next;
-        }
     ac = 7;
     return 0;
 }

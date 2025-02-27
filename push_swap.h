@@ -27,5 +27,8 @@ void    rr(t_stack **a, t_stack **b);
 void    rra(t_stack **a, int i);
 void    rrb(t_stack **b, int i);
 void    rrr(t_stack **a, t_stack **b);
+void    push_to_b(t_stack *a);
+void    sort_2_nmr(t_stack *s);
+void    sort_3_nmr(t_stack *s);
 
 #endif
