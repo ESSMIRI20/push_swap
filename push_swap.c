@@ -1,16 +1,23 @@
 #include "push_swap.h"
 
-// void	ft_lstadd_front(t_stack **lst, int value)
-// {
-// 	t_stack	*new_node;
-
-// 	new_node = (t_stack *)malloc(sizeof(t_stack));
-// 	if (!new_node)
-// 		return;
-// 	new_node->value = value;
-// 	new_node->next = *lst;
-// 	*lst = new_node;
-// }
+void check_double_value(t_stack *s)
+{
+    t_stack *node;
+    while (s->next)
+    {
+        node = s->next;
+        while (node)
+        {
+            if (s->value == node->value)
+            {
+                put_str("Error\n");
+                exit(1); 
+            }
+            node = node->next;
+        }
+        s = s->next;
+    }
+}
 
 void ft_lstadd_back(t_stack **lst, int value)
 {
@@ -27,15 +34,12 @@ void ft_lstadd_back(t_stack **lst, int value)
     new_node->next = NULL;
 
     if (*lst == NULL)
-    {
         *lst = new_node;
-    }
     else
     {
         node = *lst;
         while (node->next)
             node = node->next;
-        
         node->next = new_node;
     }
 }
@@ -44,23 +48,28 @@ int main(int ac, char **av)
 {
      int i = 1;
     t_stack *a = NULL;
-
-
+    t_stack *b = NULL;
 
     while (i < ac)
     {
         check_int(&a, av[i]);
         i++;
     }
-
-    //ra(&a, 1);
-         push_to_b(a);
+    //    push_three(&a);
+       push_to_b(&a, &b);
+        // set_index(a);
+        
         while (a)
         {
-            printf("%d ", a->value);
+            dprintf(2, "%d  ", a->value);
             a = a->next;
         }
-        printf("\n");
+        dprintf(2, "\n");
+         while (b)
+        {
+            dprintf(2, "%d  ", b->value);
+            b = b->next;
+        }
     ac = 7;
     return 0;
 }

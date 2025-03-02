@@ -18,21 +18,18 @@ void sort_2_nmr(t_stack *s)
         sa(s, 1);
 }
 
-void sort_3_nmr(t_stack *s)
+void sort_3_nmr(t_stack **s)
 {
-    int a;
-    int b;
-    int c;
+    if ((*s)->value > (*s)->next->value && (*s)->value > (*s)->next->next->value){
 
-    a = s->value;
-    b = s->next->value;
-    c = s->next->next->value;
-    if (a > b && b > c)
-        ra(&s, 1);
-    else if (b > a && b > c)
-        rra(&s, 1);
-    if (a > b)
-        sa(s, 1);
+        ra(s, 1);
+    }
+    else if ((*s)->next->value > (*s)->value && (*s)->next->value > (*s)->next->next->value)
+    {
+        rra(s, 1);
+    }
+    if ((*s)->value > (*s)->next->value)
+        sa(*s, 1);
     else
         return ;
 }

@@ -7,7 +7,6 @@ void ra(t_stack **a, int i)
     if (!a || !*a || !(*a)->next)
         return ;
     
-    tmp = NULL;
     tmp = (*a)->next;
     while ((tmp->next))
        (tmp) = (tmp)->next;
