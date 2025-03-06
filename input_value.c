@@ -99,15 +99,16 @@ void check_int(t_stack **stack, char *s)
 	int	j;
 
 	i = 0;
-	j = 0;
 	char **r = ft_split(s, ' ');
-	if (r[i] == NULL)
+	if (!r && !r[i])
 	{
+		free(r);
 		put_str("Error\n");
 		exit(1);
 	}
 	while (r[i])
 	{
+		j = 0;
 		if (r[i][j] == '-' || r[i][j] == '+')
 			j++;
 		if (!(r[i][j] <= 57 && r[i][j] >= 48))
@@ -126,7 +127,6 @@ void check_int(t_stack **stack, char *s)
 				exit(1);
 			}
 		}
-	//	printf("%d\t", atoi(r[i]));
 		ft_lstadd_back(stack, ft_atoi(r[i]));
 		check_double_value(*stack);
 		i++;

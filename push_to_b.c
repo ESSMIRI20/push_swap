@@ -16,10 +16,12 @@ int len_stack(t_stack *stack)
 void set_index(t_stack **stack)
 {
     int i;
+    int i2;
     t_stack *tmp;
     t_stack *tmp2;
 
     tmp = *stack;
+    i2 = 0;
     while (tmp)
     {
         i = 0;
@@ -31,7 +33,9 @@ void set_index(t_stack **stack)
             tmp2 = tmp2->next;
         }
         tmp->rank = i;
+        tmp->index = i2;
         tmp = tmp->next;
+        i2++;
     }
 }
 
@@ -46,13 +50,15 @@ void push_to_b(t_stack **a, t_stack **b)
     count = len;
     while (len > 3)
     {
-        if ((*a)->rank < count - 3) {
+        if ((*a)->rank < count - 3)
+        {
             len--;
             pb(a, b);
         }
         if (len > 3 && !((*a)->rank < count - 3))
             ra(a, 1);
     }
+    push_three(a);
 }
 
 void push_three(t_stack **a)

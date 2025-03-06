@@ -11,4 +11,5 @@ void pa(t_stack **a, t_stack **b)
     (*b) = (*b)->next;
     tmp->next = (*a);
     (*a) = tmp;
+    put_str("pa\n");
 }

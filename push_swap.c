@@ -55,17 +55,21 @@ int main(int ac, char **av)
         check_int(&a, av[i]);
         i++;
     }
-    //    push_three(&a);
+    if (check_sort(&a) == 0)
+    {
        push_to_b(&a, &b);
-        // set_index(a);
-        
-        while (a)
+       push_to_a(&a, &b);
+       min_value(&a);
+    }
+        int print = 0;
+        while (print && a)
         {
             dprintf(2, "%d  ", a->value);
             a = a->next;
+            dprintf(2, "\n");
         }
-        dprintf(2, "\n");
-         while (b)
+        
+         while (print && b)
         {
             dprintf(2, "%d  ", b->value);
             b = b->next;

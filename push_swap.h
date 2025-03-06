@@ -9,7 +9,12 @@ typedef struct s_stack
 {
     int value;
     int rank;
-//    int cost;
+    int     index;
+    int     rb;
+    int     rrb;
+    int     ra;
+    int     rra;
+    struct s_stack *target;
     struct s_stack  *next;
 }t_stack;
 
@@ -35,5 +40,9 @@ void    check_double_value(t_stack *s);
 void    push_three(t_stack **a);
 void    set_index(t_stack **stack);
 void    push_to_b(t_stack **a, t_stack **b);
+void    push_to_a(t_stack **a, t_stack **b);
+int     len_stack(t_stack *stack);
+void min_value(t_stack **a);
+int check_sort(t_stack **s);
 
 #endif
