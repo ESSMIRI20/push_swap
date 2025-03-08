@@ -43,21 +43,29 @@ void push_to_b(t_stack **a, t_stack **b)
 {
     int len;
     int count;
-    
+    float percent;
+
     len = len_stack(*a);
 
-    set_index(a);
+    // if (100 < len)
+        percent = 0.7;
+   /// else
+        // percent = 0.5;
+
     count = len;
     while (len > 3)
     {
-        if ((*a)->rank < count - 3)
+            dprintf(2, ">> rank: %d\n", (*a)->rank);
+        if ((*a)->rank < len_stack(*a) - percent * len)
         {
             len--;
             pb(a, b);
+            set_index(a);
         }
-        if (len > 3 && !((*a)->rank < count - 3))
+        else
             ra(a, 1);
     }
+
     push_three(a);
 }
 
