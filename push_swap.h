@@ -3,17 +3,15 @@
 
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h>
+#include <stdio.h> //?
+#include <limits.h>
 
 typedef struct s_stack
 {
     int value;
     int rank;
     int     index;
-    int     rb;
-    int     rrb;
-    int     ra;
-    int     rra;
+    int     cost;
     struct s_stack *target;
     struct s_stack  *next;
 }t_stack;

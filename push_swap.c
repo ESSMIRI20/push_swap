@@ -46,6 +46,8 @@ void ft_lstadd_back(t_stack **lst, int value)
 
 int main(int ac, char **av)
 {
+    setbuf(stderr, NULL);
+    setbuf(stdout, NULL);
      int i = 1;
     t_stack *a = NULL;
     t_stack *b = NULL;
@@ -61,19 +63,19 @@ int main(int ac, char **av)
        push_to_a(&a, &b);
        min_value(&a);
     }
-        int print = 0;
-        while (print && a)
-        {
-            dprintf(2, "%d  ", a->value);
-            a = a->next;
-            dprintf(2, "\n");
-        }
+        // int print = 1;
+        // while (print && a)
+        // {
+        //     dprintf(2, "%d  ", a->value);
+        //     a = a->next;
+        //     //dprintf(2, "\n");
+        // }
         
-         while (print && b)
-        {
-            dprintf(2, "%d  ", b->value);
-            b = b->next;
-        }
+        //  while (print && b)
+        // {
+        //     dprintf(2, "%d  ", b->value);
+        //     b = b->next;
+        // }
     ac = 7;
     return 0;
 }
