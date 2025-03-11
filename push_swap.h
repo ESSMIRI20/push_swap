@@ -6,7 +6,7 @@
 /*   By: oessmiri <oessmiri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 12:01:25 by oessmiri          #+#    #+#             */
-/*   Updated: 2025/03/08 14:51:16 by oessmiri         ###   ########.fr       */
+/*   Updated: 2025/03/11 12:21:20 by oessmiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-char				**ft_split(char const *s, char c);
-int					ft_atoi(char *s);
+char				**ft_split(char *s, char c);
+long				ft_atoi(char *s);
 void				check_int(t_stack **stack, char *s);
 void				put_str(char *str);
 void				ft_lstadd_back(t_stack **lst, int value);
@@ -45,7 +45,7 @@ void				rrb(t_stack **b, int i);
 void				rrr(t_stack **a, t_stack **b);
 void				sort_2_nmr(t_stack *s);
 void				sort_3_nmr(t_stack **s);
-void				check_double_value(t_stack *s);
+int					check_double_value(t_stack *s);
 void				push_three(t_stack **a);
 void				set_index(t_stack **stack);
 void				push_to_b(t_stack **a, t_stack **b);
@@ -55,5 +55,8 @@ void				min_value(t_stack **a);
 int					check_sort(t_stack **s);
 void				check_int(t_stack **stack, char *s);
 void				target(t_stack **a, t_stack **b);
+void				ft_free(char **result, int i);
+int					count_words(const char *s, char c);
+void				free_ft(t_stack *s);
 
 #endif
