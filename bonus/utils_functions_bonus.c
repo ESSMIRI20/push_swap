@@ -1,16 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_to_b.c                                        :+:      :+:    :+:   */
+/*   utils_functions_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oessmiri <oessmiri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/08 12:01:36 by oessmiri          #+#    #+#             */
-/*   Updated: 2025/03/08 14:54:00 by oessmiri         ###   ########.fr       */
+/*   Created: 2025/03/08 12:49:58 by oessmiri          #+#    #+#             */
+/*   Updated: 2025/03/09 12:19:51 by oessmiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
+
+void	put_str(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+}
 
 int	len_stack(t_stack *stack)
 {
@@ -51,43 +63,28 @@ void	set_index(t_stack **stack)
 	}
 }
 
-void	push_three(t_stack **a)
+int	check_sort(t_stack **s)
 {
-	int	size;
-
-	size = len_stack(*a);
-	if (size == 1)
-		return ;
-	else if (size == 2)
-		sort_2_nmr(*a);
-	else if (size == 3)
-		sort_3_nmr(a);
-}
-
-void	push_to_b(t_stack **a, t_stack **b)
-{
+	t_stack	*tmp;
+	int		r;
+	int		i;
 	int		len;
-	int		count;
-	float	percent;
 
-	len = len_stack(*a);
-	count = len;
-	if (len <= 5)
-		percent = 0.7;
-	else if (len > 5 && len <= 100)
-		percent = 0.5;
-	else
-		percent = 0.3;
-	while (len > 3)
+	if (!s || !(*s))
+		return (0);
+	len = len_stack(*s);
+	tmp = *s;
+	i = 1;
+	set_index(s);
+	r = tmp->rank;
+	tmp = tmp->next;
+	while (tmp && tmp->rank > r)
 	{
-		if ((*a)->rank < len_stack(*a) * percent)
-		{
-			len--;
-			pb(a, b);
-			set_index(a);
-		}
-		else
-			ra(a, 1);
+		r = tmp->rank;
+		tmp = tmp->next;
+		i++;
 	}
-	push_three(a);
+	if (i == len)
+		return (1);
+	return (0);
 }

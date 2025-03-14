@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_value.c                                      :+:      :+:    :+:   */
+/*   input_value_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oessmiri <oessmiri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 14:28:23 by oessmiri          #+#    #+#             */
-/*   Updated: 2025/03/11 14:18:58 by oessmiri         ###   ########.fr       */
+/*   Updated: 2025/03/11 14:20:10 by oessmiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-static	char	*copy_word(const char *start, size_t length)
+char	*copy_word(const char *start, size_t length)
 {
 	size_t	i;
 	char	*word;
@@ -30,11 +30,11 @@ static	char	*copy_word(const char *start, size_t length)
 	return (word);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int			i;
 	char		**result;
-	char		*start;
+	const char	*start;
 
 	result = malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!result)
@@ -83,7 +83,7 @@ static	void	f1(t_stack **stack, char **r, int i)
 static void	helpe_func(t_stack **stack, char **r, int i, int j)
 {
 	j = 0;
-	if (r[i][j] == '-' || r[i][j] == '+' )
+	if (r[i][j] == '-' || r[i][j] == '+')
 		j++;
 	if (!(r[i][j] <= 57 && r[i][j] >= 48))
 	{
@@ -98,9 +98,9 @@ static void	helpe_func(t_stack **stack, char **r, int i, int j)
 			j++;
 		else
 		{
+			write(2, "Error\n", 6);
 			free_ft(*stack);
 			ft_free(r, i);
-			write(2, "Error\n", 6);
 			exit(255);
 		}
 	}
@@ -120,7 +120,7 @@ void	check_int(t_stack **stack, char *s)
 	{
 		free(r);
 		write(2, "Error\n", 6);
-		exit(255);
+		exit(1);
 	}
 	while (r[i])
 	{
