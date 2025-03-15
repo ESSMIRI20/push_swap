@@ -6,7 +6,7 @@
 /*   By: oessmiri <oessmiri@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 12:01:02 by oessmiri          #+#    #+#             */
-/*   Updated: 2025/03/11 14:25:37 by oessmiri         ###   ########.fr       */
+/*   Updated: 2025/03/15 07:39:28 by oessmiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	read_content(t_stack **a, t_stack **b, char *str)
 	else if (ft_strcmp (str, "ss\n") == 0)
 		ss(*a, *b, 0);
 	else
-		(free(str), free_ft(*a), write(2, "Error\n", 6), exit(255));
+		(free(str), free_ft(*b), free_ft(*a), write(2, "Error\n", 6), exit(255));
 }
 
 void	help(int ac, char **av, t_stack **a)
