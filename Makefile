@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -I . -Wall -Wextra -Werror
+CFLAGS = -I . -I bonus -Wall -Wextra -Werror
 
 NAME = push_swap
 BONUS_NAME = checker
@@ -14,16 +14,19 @@ bonus_files = bonus/push_swap_bonus.c  bonus/utils_functions_bonus.c  bonus/push
 		bonus/files_bonus/rra_bonus.c  bonus/files_bonus/rrb_bonus.c bonus/files_bonus/rrr_bonus.c\
 		bonus/get_next_line/get_next_line.c bonus/get_next_line/get_next_line_utils.c
 
+INC_MANDATORY = push_swap.h
+INC_BONUS = bonus/push_swap_bonus.h
+
 OB = $(FILES:.c=.o)
 BONUS_OB = $(bonus_files:.c=.o)
 
 all : $(NAME)
 bonus : $(BONUS_NAME)
 
-$(NAME) : $(OB)
+$(NAME) : $(OB) $(INC_MANDATORY)
 	$(CC) $(CFLAGS) -o $(NAME) $(OB)
 
-$(BONUS_NAME) : $(BONUS_OB)
+$(BONUS_NAME) : $(BONUS_OB) $(INC_BONUS)
 	$(CC) $(CFLAGS) -o $(BONUS_NAME) $(BONUS_OB)
 
 %.o : %.c
