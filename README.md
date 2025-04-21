@@ -1,5 +1,5 @@
 🧠 push_swap
-push_swap is a 42/1337 school algorithmic project focused on sorting data using a limited set of stack operations. The goal is to sort a stack of integers (Stack A) with the smallest possible number of instructions, using only a predefined list of stack operations and a second auxiliary stack (Stack B).
+push_swap is a school algorithmic project focused on sorting data using a limited set of stack operations. The goal is to sort a stack of integers (Stack A) with the smallest possible number of instructions, using only a predefined list of stack operations and a second auxiliary stack (Stack B).
 
 📋 Project Overview
 Input: A list of unsorted integers passed as arguments.
